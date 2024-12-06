@@ -184,10 +184,11 @@ def compute_metrics(scores, predictions, dataset, metrics, k=1, beta=1, verbose=
             continue
         user_truth = y_true_all[user_ids_i]
         user_pred = y_pred_all[user_ids_i]
+        score_pred = scores_all[user_ids_i]  ## ADDED
         if (len(np.unique(user_truth)) == 2) and (1 in user_truth):
-            fpr, tpr, _ = ROC(user_truth, user_pred, pos_label=1)
-            pres, rec, _ = PRC(user_truth, user_pred)
-            aucs.append(roc_auc_score(user_truth, user_pred, average="weighted"))
+            fpr, tpr, _ = ROC(user_truth, score_pred, pos_label=1)
+            pres, rec, _ = PRC(user_truth, score_pred)
+            aucs.append(roc_auc_score(user_truth, score_pred, average="weighted"))
             fscores.append(
                 fbeta_score(user_truth, user_pred, beta=beta, average="weighted")
             )
