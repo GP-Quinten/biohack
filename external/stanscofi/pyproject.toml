@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "stanscofi"
+version = "0.1.0"
+description = ""
+authors = ["Julien Blanchon <julien@blanchon.cc>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = "^2.1.3"
+scipy = "^1.14.1"
+joblib = "^1.4.2"
+seaborn = "^0.13.2"
+tqdm = "^4.67.1"
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
