@@ -1,0 +1,35 @@
+Version 2.0.0 (05/29/2023)
+
+This is a drug repurposing dataset, compiled by Dr. Clémence Réda <clemence.reda@uni-rostock.de> at Universität Rostock, comprising a drug-disease association matrix, and several drug-drug and disease-disease similarity matrices. It only uses transcriptomic data (i.e., gene activity/expression). The sparsity number is the percentage of nonzero values in the association matrix.
+
+# drugs | # diseases | Sparsity number | # positive associations | # negative associations | # genes
+------- | ---------- | --------------- | ----------------------- | ----------------------- | -------
+204     | 116        | 0.44%           | 401                     | 11                      | 12,096
+
+All drugs (resp., diseases) are associated with a gene expression feature vector of length 12,096 (that is, all drugs and diseases in the feature matrices appear in the association matrix, and vice versa). 
+
+----------
+
+This dataset consists of three .CSV files:
+
+* Drug-Disease Association Matrix 
+
+1. "ratings_mat.csv"
+
+This matrix contains values in {-1,0,1} where -1 stands for a negative association (i.e., the drug failed for some reason to treat the considered disease: e.g., lack of accrual in the associated clinical trial, or proven toxicity), 1 for a positive association (i.e., the drug was shown to treat the disease), and 0 for unknown associated status. The columns are diseases, identified by their MedGen Concept ID, whereas rows are drugs, identified by their DrugBank IDs or PubChem CIDs.
+
+* Drug Feature Matrix
+
+1. "items.csv" 
+
+This matrix has drugs in its columns, identified by their DrugBank IDs or PubChem CIDs, and genes in its rows, identified by their HUGO Gene Symbol. Genewise transcriptomic variation induced by drug treatment, from the CREEDS or the LINCS L1000 databases.
+
+* Disease Feature Matrix
+
+1. "users.csv" 
+
+This matrix has diseases in its columns, identified by their MedGen Concept IDs, and genes in its rows, identified by their HUGO Gene Symbol. Genewise transcriptomic variation induced by the disease, from the CREEDS database.
+
+----------
+
+Further information about the generation of those matrices is available by running the Jupyter notebook TRANSCRIPT_dataset.ipynb on the following GitHub repository: https://github.com/RECeSS-EU-Project/drug-repurposing-datasets. For any questions, please contact the author at <clemence.reda@uni-rostock.de> or the RECeSS project contributors at <recess-project@proton.me>.

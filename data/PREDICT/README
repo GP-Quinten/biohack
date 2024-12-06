@@ -1,0 +1,51 @@
+Version 2.0.0 (05/29/2023)
+
+This is a drug repurposing dataset, compiled by Dr. Clémence Réda <clemence.reda@uni-rostock.de> at Universität Rostock, comprising a drug-disease association matrix, and several drug-drug and disease-disease similarity matrices. It uses the same type of data than the dataset compiled by Gottlieb et al., 2011 [PMID: 21654673]. The sparsity number is the percentage of nonzero values in the association matrix.
+
+# drugs | # diseases | Sparsity number | # positive associations | # negative associations
+------- | ---------- | --------------- | ----------------------- | -----------------------
+1,351   | 1,066      | 0.34%           | 5,624                   | 152
+
+Note that not all drugs (resp., diseases) might have an associated feature vector (that is, all drugs and diseases in the similarity matrix appear in the association matrix, but not necessarily the other way around). 
+
+----------
+
+This dataset consists of five .CSV files:
+
+* Drug-Disease Association Matrix 
+
+1. "ratings_mat.csv"
+
+This matrix contains values in {-1,0,1} where -1 stands for a negative association (i.e., the drug failed for some reason to treat the considered disease: e.g., lack of accrual in the associated clinical trial, or proven toxicity), 1 for a positive association (i.e., the drug was shown to treat the disease), and 0 for unknown associated status. The columns are diseases, identified by their MedGen Concept ID, whereas rows are drugs, identified by their DrugBank IDs or PubChem CIDs.
+
+* Drug-Drug Similarity Matrix
+
+All drug-drug similarity matrices have drugs in their columns and rows, identified by their DrugBank IDs or PubChem CIDs.
+
+1. "se_PREDICT_matrix.csv" 
+
+Jaccard score similarity between one-hot encodings of the side effects reported for drugs.
+
+2. "signature_PREDICT_matrix.csv"
+
+Jaccard score similarity between drug signatures (from the CREEDS or the LINCS L1000 databases), that is, vectors reporting the genewise change in activity due to treatment.
+
+Other types of similarity matrices and further information about the generation of those matrices are available by running the Jupyter notebook PREDICT_dataset.ipynb on the following GitHub repository: https://github.com/RECeSS-EU-Project/drug-repurposing-datasets.
+
+* Disease-Disease Similarity Matrix
+
+All disease-disease similarity matrices have diseases in their columns and rows, identified by their MedGen Concept IDs.
+
+1. "disease_semantic_PREDICT_matrix.csv" 
+
+Resnik semantic similarity between onthology nodes associated with diseases (from the HPO database).
+
+2. "disease_phenotype_PREDICT_matrix.csv"
+
+Jaccard score similarity between disease phenotypes (from the CREEDS database), that is, vectors reporting the genewise change in activity due to the disease.
+
+Other types of similarity matrices and further information about the generation of those matrices are available by running the Jupyter notebook PREDICT_dataset.ipynb on the following GitHub repository: https://github.com/RECeSS-EU-Project/drug-repurposing-datasets.
+
+----------
+
+For any questions, please contact the author at <clemence.reda@uni-rostock.de> or the RECeSS project contributors at <recess-project@proton.me>.
