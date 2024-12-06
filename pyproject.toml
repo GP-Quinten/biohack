@@ -11,7 +11,7 @@ bio = "biohack.main:app"
 
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = "^3.12"
 matplotlib = "^3.9.3"
 typer = "^0.15.1"
 
