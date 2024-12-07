@@ -55,6 +55,14 @@ outcome_predictors = [
     # or there are motor/movement changes (binary)
 ]
 
+treatments = [
+    "MEMANTINE",
+    "DONEPEZIL",
+    "GALANTAMINE",
+    "RIVASTIGMINE",
+]
+
+
 outcome = "CDRSUM"
 
 
