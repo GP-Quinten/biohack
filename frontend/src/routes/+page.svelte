@@ -4,12 +4,13 @@
 	import * as ToggleGroup from '$lib/components/ui/toggle-group/index.js';
 	import { fade, fly } from 'svelte/transition';
 	import { Star, BookOpenText, Loader2, CirclePlus, ChartSpline } from 'lucide-svelte';
+	import Confetti from 'svelte-confetti';
 
 	let selectedModel: 'rating-based' | 'similarity-based' = 'rating-based';
 	let selectedSearchAlgorithm: 'greedy' | 'ucb' = 'greedy';
 	let isLoading = false;
 
-	let searchQuery: string = '';
+	let searchQuery: string = 'Alzheimer';
 
 	// When selectedSearchAlgorithm or selectedModel change set isLoading to true during 2s
 	// $: if (selectedSearchAlgorithm || selectedModel) {
@@ -46,6 +47,7 @@
 						value="similarity-based"
 						aria-label="Similarity Based"
 						class="h-32 w-full"
+						disabled
 					>
 						<BookOpenText class="h-4 w-4" />
 						Include Similarity Based
@@ -88,6 +90,9 @@
 			</div>
 		{:else if selectedSearchAlgorithm === 'greedy'}
 			<!-- Harcoded because too lazy to fetch from API :( -->
+			<div class="flex h-full items-center justify-center">
+				<Confetti rounded size={15} />
+			</div>
 			<div transition:fly={{ y: 20, duration: 500 }} class="grid gap-6 md:grid-cols-3">
 				<DrugCard
 					drugDetails={{
