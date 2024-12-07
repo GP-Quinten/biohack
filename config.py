@@ -1,13 +1,14 @@
+BASELINE_PERIOD = 1
 instrumental_variables = [
     "BPSYS",  # Systolic blood pressure [70,230]
-    "CBSTROKE",  # epileptic seizure [0 1 2 9 -4] (infarctus du myocarde)
+    "CBSTROKE", # epileptic seizure [0 1 2 9 -4] (infarctus du myocarde)
     "HYPERTEN",  # Hypertension[0 1 2 9 -4]
     "NACCCCBS",  # calcium channel blocker [0 1 -4]
     "NACCADC",  # ADC at which the patient was diagnosed
     "EPILEP",  # epileptic seizure [0 1 2 9 -4]
 ]
 confounders = [
-    "VISIT",
+    "AGE_AT_VISIT",
     "INDEPEND",  # Independence score 1 - 4
     "INLIVWTH",  # In-living with partner (binary)
     "NACCAC",  # anticoagulant [0 1 -4]
@@ -19,7 +20,7 @@ confounders = [
     "NACCMMSE",  # Mini-Mental State Examination
     "FAQ",  # Functional Activities Questionnaire
     "NACCGDS",  # Geriatric Depression Scale
-    "CDRGLOB",  # Global CDR® -> used as the outcome
+    "CDRGLOB",  # Global CDR®
 ]
 outcome_predictors = [
     "NACCNIHR",
@@ -46,10 +47,22 @@ outcome_predictors = [
     "COGMODE",  # COG MODE OF ONSET (ordinal)
     "MOMODE",  # MO MODE OF ONSET (ordinal)
     "JUDGMENT",  # Judgment and problem-solvin (ordinal but has 0.5 status -> continuous)
-    "CDRSUM",  # CDR® sum of boxes (score 0 - 18)
+    # "CDRSUM",  # CDR® sum of boxes (score 0 - 18) -> used as the outcome
     "COMPORT",  # Behavior, comportment, and personality (ordinal but has 0.5 status -> continuous)
     "CDRLANG",  # Language (ordinal but has 0.5 status -> continuous)
     "DECCLIN",  # Clinician believes there is a meaningful decline in memory,
     # non-memory cognitive abilities, behavior, ability to manage his/her affairs,
     # or there are motor/movement changes (binary)
 ]
+
+outcome = "CDRSUM"
+
+
+## Matching drugs to kept categories
+DICT_DRUGS_NACC_CATEGORIES = {
+    "DB00563": [],
+    "DB00434": ["NACCAHTN", "NACCACEI"],
+    "DB00541": ["NACCDBMD"],
+    "DB01204": ["NACCADEP"],
+    "DB01620": []
+}
