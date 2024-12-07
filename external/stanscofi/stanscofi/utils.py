@@ -298,6 +298,8 @@ def load_dataset(model_name, save_folder="./", sep_feature="-"):
         fnames = {"A": "ratings_mat.csv", "P": "users.csv", "S": "items.csv"}
         if not os.path.exists(path + fnames["A"]):
             if "TRANSCRIPT" in model_name:
+                print("copucou")
+                print(model_name)
                 url_dataset = (
                     "https://zenodo.org/record/7982976/files/TRANSCRIPT_dataset_v2.0.0.zip"
                     if (model_name == "TRANSCRIPT")
