@@ -1,11 +1,11 @@
 BASELINE_PERIOD = 1
 instrumental_variables = [
-    "BPSYS",  # Systolic blood pressure [70,230]
-    "CBSTROKE", # epileptic seizure [0 1 2 9 -4] (infarctus du myocarde)
-    "HYPERTEN",  # Hypertension[0 1 2 9 -4]
-    "NACCCCBS",  # calcium channel blocker [0 1 -4]
-    "NACCADC",  # ADC at which the patient was diagnosed
-    "EPILEP",  # epileptic seizure [0 1 2 9 -4]
+    # "BPSYS",  # Systolic blood pressure [70,230]
+    # "CBSTROKE", # epileptic seizure [0 1 2 9 -4] (infarctus du myocarde)
+    # "HYPERTEN",  # Hypertension[0 1 2 9 -4]
+    # "NACCCCBS",  # calcium channel blocker [0 1 -4]
+    # "NACCADC",  # ADC at which the patient was diagnosed
+    # "EPILEP",  # epileptic seizure [0 1 2 9 -4]
 ]
 confounders = [
     "AGE_AT_VISIT",
@@ -62,6 +62,61 @@ treatments = [
     "RIVASTIGMINE",
 ]
 
+covariates = [
+    "SMOKYRS",
+    "CVHATT",
+    "CBSTROKE",
+    "CBTIA",
+    "DIABETES",
+    "HYPERTEN",
+    "HYPERCHO",
+    "B12DEF",
+    "THYROID",
+    "ARTHRIT",
+    "ABUSOTHR",
+    "OCD",
+    "BPSYS",
+    "VISION",
+    "HEARING",
+    "SOMATIC",
+    "EMOT",
+    "HXHYPER",
+    "FOCLSIGN",
+    "HACHIN",
+    "CVDIMAG1",
+    "PDNORMAL",
+    "MEMORY",
+    "ORIENT",
+    "DELSEV",
+    "HALLSEV",
+    "AGITSEV",
+    "DEPDSEV",
+    "ANXSEV",
+    "ELATSEV",
+    "APASEV",
+    "DISNSEV",
+    "IRRSEV",
+    "MOTSEV",
+    "NITESEV",
+    "APPSEV",
+    "NORMEXAM",
+    "COGSTAT",
+    "NACCUDSD",
+    "AMYLCSF",
+    "CSFTAU",
+    "EPILEP",
+    "SEIZURES",
+    "HIV",
+    "OTHCOG",
+    "DEP",
+    "BIPOLDX",
+    "SCHIZOP",
+    "ANXIET",
+    "OTHPSY",
+    "DYSILL",
+    "SLEEP",
+]
+
 
 outcome = "CDRSUM"
 
@@ -72,5 +127,5 @@ DICT_DRUGS_NACC_CATEGORIES = {
     "DB00434": ["NACCAHTN", "NACCACEI"],
     "DB00541": ["NACCDBMD"],
     "DB01204": ["NACCADEP"],
-    "DB01620": []
+    "DB01620": [],
 }
